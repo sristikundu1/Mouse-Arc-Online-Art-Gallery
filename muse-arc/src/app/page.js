@@ -1,3 +1,4 @@
+import Banner from '@/components/Banner/Banner';
 import Head from 'next/head';
 
 
@@ -6,11 +7,12 @@ const HomePage = () => {
   return (
     <div>
        {/* Set the favicon */}
-       <Head>
+       {/* <Head>
         <link rel="icon" href="favicon.png" />
-      </Head>
+      </Head> */}
       
-      <h1 className='font-bold text-center' >This is homepage</h1>
+      {/* <h1 className='font-bold text-center' >This is homepage</h1> */}
+      <Banner></Banner>
     </div>
   );
 };

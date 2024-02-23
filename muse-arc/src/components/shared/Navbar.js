@@ -14,6 +14,7 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import logo from '@/assests/logo.png'
 import Image from 'next/image';
+
 // icon 
 import SearchIcon from '@mui/icons-material/Search';
 import Link from 'next/link';
@@ -36,6 +37,8 @@ const navItems = [
 
 const Navbar = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
+    const [isScrolled, setIsScrolled] = React.useState(false);
+   
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -45,9 +48,25 @@ const Navbar = () => {
         setAnchorElNav(null);
     };
 
+    React.useEffect(() => {
+        const handleScroll = () => {
+            const scrollPosition = window.scrollY;
+            if (scrollPosition > 0) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
+
 
     return (
-        <AppBar position="static" className=' bg-transparent max-w-6xl mx-auto' elevation={0}>
+        <AppBar position={isScrolled ? "fixed" : "static"} className={isScrolled ? 'bg-black ' : 'bg-transparent max-w-6xl mx-auto'}  elevation={0}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
 
@@ -82,19 +101,19 @@ const Navbar = () => {
                         >
                             {navItems.map((item) => (
                                 <MenuItem key={item} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">{item.route}</Typography>
+                                    <Typography textAlign="center"  color="white">{item.route}</Typography>
                                 </MenuItem>
                             ))}
                         </Menu>
                     </Box>
 
-                        <Image src={logo} width={100} height={100} alt="logo" />
+                        <Image src={logo} width={150} height={100} alt="logo" />
                    
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center', }}>
+                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center'}}>
                         {navItems.map((item) => (
                             <Link key={item} href={item.pathname}>
                                 <Button onClick={handleCloseNavMenu}
-                                    sx={{ my: 2, color: 'black', display: 'block' }}>
+                                    sx={{ my: 2, color: 'white', display: 'block' }}>
                                     {item.route}
                                 </Button>
                             </Link>
@@ -103,7 +122,7 @@ const Navbar = () => {
                     </Box>
 
                     <Box>
-                        <IconButton>
+                        <IconButton sx={{ color: 'white' }}>
                             <SearchIcon></SearchIcon>
                         </IconButton>
                     </Box>

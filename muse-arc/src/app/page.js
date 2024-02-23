@@ -1,18 +1,13 @@
 import Banner from '@/components/Banner/Banner';
-import Head from 'next/head';
-
+import History from '@/components/History/History';
 
 
 const HomePage = () => {
+
   return (
-    <div>
-       {/* Set the favicon */}
-       {/* <Head>
-        <link rel="icon" href="favicon.png" />
-      </Head> */}
-      
-      {/* <h1 className='font-bold text-center' >This is homepage</h1> */}
+    <div className='relative'>
       <Banner></Banner>
+      <History></History>
     </div>
   );
 };

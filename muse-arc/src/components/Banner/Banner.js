@@ -34,16 +34,12 @@ const Banner = () => {
             text: "Discovery",
             className: "text-[#fefae0]"
         },
-        {
-            text: "Found.",
-            className: "text-[#fefae0]"
-        },
     ];
     return (
 
-        <div>
+        <div className='relative h-[550px]'>
 
-            <Image className='relative' fill={true} src={bannerImg} alt='bannerImg' />
+            <Image className='object-cover' src={bannerImg} alt='bannerImg' fill={true} />
             <div className='absolute inset-0 bg-black opacity-50'></div>
 
             <div>
@@ -51,8 +47,10 @@ const Banner = () => {
             </div>
 
             <div className='absolute top-1/3 max-w-6xl mx-auto text-center'>
-               
+
+               <div className='pl-14 lg:pl-28'>
                <TypewriterEffectSmooth words={words} />
+               </div>
 
                 <p className='xs:text-sm my-4 text-[#e9edc9] text-center md:text-xl md:text-center'>Explore the Beauty, Discover the Stories, Immerse Yourself in Art.</p>
 

@@ -1,4 +1,5 @@
 import Banner from '@/components/Banner/Banner';
+import Exhibition from '@/components/Exhibition/Exhibition';
 import History from '@/components/History/History';
 
 
@@ -8,6 +9,7 @@ const HomePage = () => {
     <div className='relative'>
       <Banner></Banner>
       <History></History>
+      <Exhibition></Exhibition>
     </div>
   );
 };

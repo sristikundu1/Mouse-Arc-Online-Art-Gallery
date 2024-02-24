@@ -3,7 +3,7 @@
 import { Box, IconButton } from "@mui/material";
 import LayoutGrid from "../ui/layout-grid";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-// import React, { useState, useRef, useEffect } from "react";
+
 
 
 const SkeletonOne = () => {
@@ -167,7 +167,7 @@ const cards = [
 const Collection = () => {
 
     return (
-        <div className="bg-[#f8edeb] py-20 pb-32">
+        <div className="bg-[#f8edeb]  px-10 py-20 pb-32 md:py-20">
             <div className='flex justify-between items-center border-b-2 border-black pb-4 lg:max-w-6xl mx-auto '>
                 <h2 className='text-4xl font-bold text-[#654321]'>Collection</h2>
                 <Box className='flex gap-3 justify-center items-center'>

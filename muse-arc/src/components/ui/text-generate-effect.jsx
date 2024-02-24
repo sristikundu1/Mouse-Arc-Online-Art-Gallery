@@ -1,15 +1,10 @@
 "use client";
+
 import { useEffect } from "react";
 import { motion, stagger, useAnimate } from "framer-motion";
 import { cn } from "@/utils/cn";
 
-export const TextGenerateEffect = ({
-  words,
-  className,
-}: {
-  words: string;
-  className?: string;
-}) => {
+export const TextGenerateEffect = ({ words, className }) => {
   const [scope, animate] = useAnimate();
   let wordsArray = words.split(" ");
   useEffect(() => {
@@ -23,6 +18,7 @@ export const TextGenerateEffect = ({
         delay: stagger(0.2),
       }
     );
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [scope.current]);
 
   const renderWords = () => {
